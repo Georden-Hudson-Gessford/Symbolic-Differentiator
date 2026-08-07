@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
-#include "parser.h"
+#include "Parser.h"
 using namespace std;
 
 
-vector<string> Termsplitter (const string& e) {
+vector<string> parse_terms(const string& e) {
 
 vector<string> terms;
 int depth = 0;
