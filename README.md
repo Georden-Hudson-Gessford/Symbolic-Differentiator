@@ -25,7 +25,7 @@ Source Expression
      AST
       |
       v
-Symbolic Transformation
+Symbolic Transformation (Derivative)
       |
       v
  Simplification
@@ -34,7 +34,7 @@ Symbolic Transformation
 Derivative Expression
 ```
 
-Rather than treating an equation primarily as a string, the compiler-style implementation converts it into a structured representation that can be recursively manipulated.
+Rather than treating an equation primarily as a string (like version 1.2 does), the compiler-style implementation converts it into a structured representation that can be recursively manipulated.
 
 Each implementation has its own README containing more detailed explanations of its design, supported syntax, current limitations, and usage.
 
@@ -47,12 +47,10 @@ This repository serves several purposes:
 * Build a functional symbolic differentiation engine in C++.
 * Develop stronger understanding of recursion and tree-based data structures.
 * Explore tokenization and parsing.
-* Learn compiler front-end architecture.
-* Practice memory management using pointers and smart pointers.
 * Represent mathematical expressions as abstract syntax trees.
 * Implement symbolic transformations over structured expressions.
 * Explore expression simplification and algebraic manipulation.
-* Compare an organically developed implementation with a more formal compiler-style design.
+* Compare an organically developed implementation based on string manipulation with a formal design akin to a compilers front-end.
 
 The project is intentionally evolving from simpler approaches toward more scalable ones.
 
@@ -62,7 +60,7 @@ The project is intentionally evolving from simpler approaches toward more scalab
 
 The repository contains two main generations of the differentiator.
 
-### Original Symbolic Differentiator
+### Original Symbolic Differentiator (Versions < 2.0)
 
 The original implementation was developed around direct manipulation of mathematical expressions.
 
@@ -197,7 +195,7 @@ Keeping both implementations in the repository also preserves the development hi
 
 ## Current and Planned Capabilities
 
-Depending on the implementation, the project explores or intends to support expressions involving:
+Depending on the implementation version, the project explores or intends to support expressions involving:
 
 * constants
 * variables
@@ -298,17 +296,15 @@ The long-term architecture of the compiler-style version is approximately:
                 Symbolic Expression
 ```
 
-This architecture also creates opportunities for future compiler-like stages such as optimization or code generation.
 
----
 
 ## What This Project Explores
 
-Although the visible result is a symbolic differentiator, the project also serves as a practical introduction to several broader computer science concepts.
+Although the visible result is a symbolic differentiator, the project utilizes several broader computer science concepts.
 
 ### Data Structures
 
-Abstract syntax trees provide practical experience with:
+Abstract syntax tree is centered around:
 
 * trees
 * recursive structures
@@ -318,7 +314,7 @@ Abstract syntax trees provide practical experience with:
 
 ### Memory Management
 
-The C++ implementation provides opportunities to work with:
+The C++ implementation works with:
 
 * pointers
 * references
@@ -396,29 +392,7 @@ g++ -std=c++17 main.cpp -o differentiator
 
 The exact source layout will vary between implementations.
 
----
-
-## Roadmap
-
-Possible future milestones include:
-
-* [ ] Complete arithmetic-expression parser
-* [ ] Add variables to the AST
-* [ ] Add exponentiation
-* [ ] Implement complete AST-based differentiation
-* [ ] Implement product rule
-* [ ] Implement quotient rule
-* [ ] Implement chain rule
-* [ ] Add common trigonometric functions
-* [ ] Build an expression simplification pass
-* [ ] Improve AST printing
-* [ ] Add syntax and error diagnostics
-* [ ] Expand test coverage
-* [ ] Add expression evaluation
-* [ ] Explore intermediate representations
-* [ ] Explore assembly or machine-code generation from mathematical expressions
-
----
+...
 
 ## Repository READMEs
 
