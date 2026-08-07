@@ -1,9 +1,8 @@
-
 #include <string>
 #include <vector>
 #include <cstdlib>
 
-
+// g++ test.cpp -o win
  constexpr std::string::size_type not_found = std::string::npos;
 
 void bad_euler(std::vector<std::string>& e){
