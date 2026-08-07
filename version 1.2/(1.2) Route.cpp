@@ -1,21 +1,29 @@
 #include <string>
 #include <vector>
-#include "parser.h"
+#include "Parser.h"
 #include "Differentiator.h"
+#include "Route.h"
 #include <iostream>
 
 
 
-std::string mother(std::string& e) {
+std::string recursive_route(std::string& e) {
     
-std::vector <std::string> termites;
+std::vector <std::string> parsed_terms;
 std::string finale;
-termites = Termsplitter(e);
+parsed_terms = parse_terms(e);
 
-for (size_t i = 0; i < termites.size(); i++)
-    termites[i] = differentiator(termites[i]);
+for (size_t i = 0; i < parsed_terms.size(); i++)
+    parsed_terms[i] = main_differentiator(parsed_terms[i]);
 
-for ( const auto& terminus : termites)
-    finale = finale + " " + terminus;
+for ( const auto& terms: parsed_terms)
+    finale = finale + " " + terms;
 
 return finale;
+
+
+
+
+
+
+}
