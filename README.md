@@ -1,4 +1,4 @@
-# Polynomial-Differentiator-C-
+# Polynomial-Differentiator-C- 1.2
 A C++ program that parses polynomial expressions entered by a user and computes their derivative.
 
 Under active development.
@@ -9,6 +9,9 @@ Under active development.
 - Handles positive exponents
 - Handles multiple terms
 - Handles negative coefficients
+- expressions using e^(x) and ln(x)
+- tan, sin, cos
+- -Chain rule
 
 ## Example
 
@@ -22,13 +25,8 @@ Output:
 
 ## Technologies
 
-- C++
-- STL Vectors
-- Strings
-- Structs
 
 ## Future Improvements
 - Decompose Functions
 - Handle large numbers
-- Reduce no. flags
-- Trigonometric functions
+
