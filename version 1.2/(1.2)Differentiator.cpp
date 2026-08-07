@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include "Poly_differ.h"
-#include "chain.h"
+#include "Chain.h"
 constexpr std::string::size_type not_found = std::string::npos;
 
 
 
 //Function finds coefficients of expression for outer function
-std::string co_finder(std::string& e) {
+std::string coefficient_finder(std::string& e) {
 
 size_t co_st = e.find_first_of("1234567890");
 size_t co_end = e.find_last_of("1234567890");
@@ -30,7 +30,7 @@ std:: string sin_diff(std::string& e) {
 
 std::string co = "";
 
-co = co_finder(e);
+co = coefficient_finder(e);
 
 std::string sign = "";
 
@@ -53,7 +53,7 @@ std::string sign = "";
 
 
 
-co = co_finder(e);
+co = coefficient_finder(e);
 
 if (e.substr(0, 1) == "+" || e.substr(0, 1) == "-") 
     sign = e.substr(0,1);
@@ -73,7 +73,7 @@ return e;
 std:: string tan_diff(std::string& e) {
 
 std::string co = "";
-co = co_finder(e);
+co = coefficient_finder(e);
 
 
 std::string sign = "";
@@ -89,10 +89,10 @@ return e;
 }
 
 //Eulers number differentiator
-std:: string e_diff(std::string& e) {
+std:: string euler_diff(std::string& e) {
 
 std::string co = "";
-co = co_finder(e);
+co = coefficient_finder(e);
 
 
 std::string sign = "";
@@ -111,7 +111,7 @@ return e;
 std:: string ln_diff(std::string& e) {
 
 std::string co = "1";
-co = co_finder(e);
+co = coefficient_finder(e);
 
 if (co == "")
     co = "1";
@@ -129,7 +129,7 @@ return e;
 }
 
 
- std::string differentiator(std::string& e) {
+ std::string main_differentiator(std::string& e) {
 
 
  if ( e.find("(") != not_found) 
@@ -139,7 +139,7 @@ return e;
     return sin_diff(e); 
 
 else if (e.find("e^") != not_found) 
-    return e_diff(e);
+    return euler_diff(e);
 
 else if (e.find("cos") != not_found) 
     return cos_diff(e);
@@ -151,7 +151,7 @@ else if (e.find("ln") != not_found)
     return ln_diff(e);
 
 else if (e.find("x") != not_found) 
-    return poly_parse(e);
+    return poly_diff(e);
 
 else
     e = "";
@@ -159,5 +159,3 @@ else
 
 return e;
 }
-
-
