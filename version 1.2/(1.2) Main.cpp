@@ -4,7 +4,7 @@
 #include "Parser.h"
 #include "Poly_differ.h"
 #include "Differentiator.h"
-#include "chain.h"
+#include "Chain.h"
 #include "Route.h"
 #include "Pruner.h"
 
@@ -32,18 +32,14 @@ std::cout << "     RULES END          \n \n";
 std::cout << "enter an expression to see its derivative\n";
 std::cout << "EX: 2x^4 + 3x^4 = 8x^3 + 12x^3\n";
 
-
-
 }
-
-
 
 
 int main() 
 {
 
  std::string e;
-std::vector<std::string> terms;
+std::vector<std::string> term_set;
 std::vector<std::string> diff_terms;
 menu();
 
@@ -53,20 +49,15 @@ prepare = e.find_first_not_of(" ");
 e.erase(0, prepare);
 std::cout<< "the expression is:" << e << "\n";
 
-terms = Termsplitter(e);
-terms = Pruner(terms);
-for (size_t i = 0; i < terms.size(); i++)
-    terms[i] = differentiator(terms[i]);
+term_set = parse_terms(e);
+term_set = Pruner(term_set);
+for (size_t i = 0; i < term_set.size(); i++)
+    term_set[i] = main_differentiator(term_set[i]);
 std::cout << "\n";
 std::cout <<"the final expression is ";
-for (const auto& expel : terms )
-std::cout << expel << " ";
-
-
-
+for (const auto& terms : term_set)
+std::cout << terms << " ";
 
 
 return 0;
 }
-
-
