@@ -3,7 +3,7 @@
 #include "Poly_differ.h"
 #include "chain.h"
 constexpr std::string::size_type not_found = std::string::npos;
-// g++ Differentiator.cpp  Poly_differ.cpp Route.cpp chain.cpp Parser.cpp -o ex
+
 
 
 //Function finds coefficients of expression for outer function
@@ -159,6 +159,5 @@ else
 
 return e;
 }
-
 
 
