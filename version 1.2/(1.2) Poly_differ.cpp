@@ -4,10 +4,14 @@ constexpr std::string::size_type not_found = std::string::npos;
 typedef size_t pos;
 
 
+//   g++ Poly_differ.cpp -o exe
+
+
+
 
 
 //Function 1
-std::string poly_diff(std::string& coefficient, std::string& exponent) {
+std::string take_derivative(std::string& coefficient, std::string& exponent) {
 
 std::string x = "x";
 std::string return_me;
@@ -106,7 +110,7 @@ return e;
 
 
 
-std::string poly_parse(std::string& e) {
+std::string poly_diff(std::string& e) {
 pos caret_detector;
  
 pos coefficient_pos;
@@ -154,7 +158,6 @@ return e;
 if (exponent == "0")
     e = "";
 else
-    e = poly_diff(coefficient, exponent);
+    e = take_derivative(coefficient, exponent);
 return e;
 }
-
